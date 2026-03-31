@@ -5,7 +5,7 @@ subfolder. Uncertain or ambiguous frames go to uncertain/ for manual review.
 
 Usage:
   python autolabel_frames.py --input ./frames --output ./labeled
-  python autolabel_frames.py --input ./frames --output ./labeled --model gemma3:12b
+  python autolabel_frames.py --input ./frames --output ./labeled --model llama3.2-vision:11b
   python autolabel_frames.py --input ./frames --output ./labeled --model llama3.2-vision
 
 Workflow after this script:
@@ -89,7 +89,7 @@ def main():
     parser = argparse.ArgumentParser(description="Auto-label frames using a local Ollama vision model.")
     parser.add_argument("--input",  "-i", required=True,        help="Folder of extracted frames (can have subfolders)")
     parser.add_argument("--output", "-o", default="labeled",    help="Output folder (default: ./labeled)")
-    parser.add_argument("--model",  "-m", default="gemma3:12b", help="Ollama model (default: gemma3:12b)")
+    parser.add_argument("--model",  "-m", default="llama3.2-vision:11b", help="Ollama model (default: llama3.2-vision:11b)")
     parser.add_argument("--server", default="http://localhost:11434", help="Ollama server URL")
     parser.add_argument("--delay",  type=float, default=0.2,    help="Seconds between requests (default: 0.2)")
     args = parser.parse_args()
